@@ -19,7 +19,9 @@
     "Mermaid",
     "Diagram"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:sfdx-project.json"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -33,6 +35,20 @@
         {
           "command": "sfflowvisualiser.generateWebview",
           "when": "editorLangId == xml"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "sfflowvisualiser.generateWebview",
+          "when": "resourceExtname == '.xml'",
+          "group": "z_sfflowvisualiser@3"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "sfflowvisualiser.generateWebview",
+          "when": "resourceExtname == '.xml'",
+          "group": "z_sfflowvisualiser@3"
         }
       ]
     }
